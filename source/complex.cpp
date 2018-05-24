@@ -71,7 +71,8 @@ complex_t complex_t::operator/(const complex_t& obj){
 	}
 	catch(int c){
 		cout << "Division by zero" << endl;
-		
+		complex_t empty();
+		return empty;
    	}
 }
 
