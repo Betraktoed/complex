@@ -8,7 +8,7 @@ SCENARIO("complex new without param","[new without param]"){
 }
 
 SCENARIO("complex new with pram","[new with param]"){
-    Complex complex(2,-3);
+    complex_t complex(2,-3);
     REQUIRE(complex.real() == 2);
     REQUIRE(complex.imaginary() == -3);
 }
@@ -22,12 +22,14 @@ SCENARIO("complex copy","[copy]"){
 
 SCENARIO("complex sum","[sum]"){
     complex_t complex1(2,-3), complex2(4,2), complex3(6,-1);
-    REQUIRE(((complex1 += complex2) == complex3) == true);
+	complex1 += complex2;
+    REQUIRE((complex1 == complex3) == true);
 }
 
 SCENARIO("complex sub","[sub]"){
     complex_t complex1(2,-3), complex2(4,2), complex3(-2,-5);
-    REQUIRE(((complex1 -= complex2) == complex3) == true);
+	complex1 -= complex2;
+    REQUIRE((complex1 == complex3) == true);
 }
 
 SCENARIO("complex mul ", "[mul]") {
